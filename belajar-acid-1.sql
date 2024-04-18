@@ -46,3 +46,21 @@ update accounts set balance = balance + 20000
 where id = "Budi";
 
 commit;
+
+select * from accounts;
+
+start transaction;
+
+select * from accounts where id in ("Tian", "Budi") for update;
+
+update accounts set balance = balance - 500000
+where id = "Tian";
+
+# shutdown mysql
+
+update accounts set balance = balance + 500000
+where id = "Budi";
+
+commit;
+
+select * from accounts;
