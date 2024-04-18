@@ -25,3 +25,12 @@ delete from accounts where id = "Budi";
 select * from accounts;
 
 rollback;
+
+start transaction;
+
+update accounts set name = null
+where id = "Tian";
+
+commit;
+
+select * from accounts;
